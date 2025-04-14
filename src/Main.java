@@ -69,11 +69,6 @@ public class Main {
 //        System.out.println("---------------------- \nA");
 //        System.out.println(getStudentWhichNameStartWithA(students));
 
-//        ArrayList<Employee> employees = new ArrayList<>(List.of(
-//                new Employee("Anna", 20, "Teacher"),
-//                new Employee("A", -20, "Teacher"),
-//                new Employee("Anna", 20, "Teacher"),
-//                new Employee("Anna", 20, "Teacher")));
 //
 //        try{
 //            for (int i = 0; i < employees.size(); i++) {

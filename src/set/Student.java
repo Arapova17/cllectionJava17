@@ -1,15 +1,17 @@
-public class Employee {
+package set;
+
+public class Student implements Comparable<Student>{
     private String name;
     private int age;
-    private String job;
+    private String email;
 
-    public Employee() {
+    public Student() {
     }
 
-    public Employee(String name, int age, String job) {
+    public Student(String name, int age, String email) {
         this.name = name;
         this.age = age;
-        this.job = job;
+        this.email = email;
     }
 
     public String name() {
@@ -28,19 +30,25 @@ public class Employee {
         this.age = age;
     }
 
-    public String job() {
-        return job;
+    public String email() {
+        return email;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
     public String toString() {
+        return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", job='" + job + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
+
+    public int compareTo(Student o) {
+        return this.name.compareTo(o.name);
+    }
+
 }
