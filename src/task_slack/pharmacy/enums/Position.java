@@ -1,4 +1,4 @@
-package task_slack.pharmacy_management_system.enums;
+package task_slack.pharmacy.enums;
 
 public enum Position {
     ADMIN, PHARMACIST, TELLER

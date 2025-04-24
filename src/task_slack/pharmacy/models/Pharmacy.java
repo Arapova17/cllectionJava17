@@ -1,28 +1,40 @@
-package task_slack.pharmacy_management_system.models;
+package task_slack.pharmacy.models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class Pharmacy {
-    private final String id = UUID.randomUUID().toString();
+    private static Long count = 1L;
+    private Long id;
     private String name;
     private String address;
-    private List<Employee> employees = new ArrayList<>();
-    private List<Medicine> medicines = new ArrayList<>();
+    private List<Employee> employees;
+    private List<Medicine> medicines;
 
     public Pharmacy() {
     }
 
+    public Pharmacy(String name, String address) {
+        this.id = count++;
+        this.name = name;
+        this.address = address;
+        this.medicines = new ArrayList<>();
+    }
+
     public Pharmacy(String name, String address, List<Employee> employees, List<Medicine> medicines) {
+        this.id = count++;
         this.name = name;
         this.address = address;
         this.employees = employees;
         this.medicines = medicines;
     }
 
-    public String id() {
+    public Long id() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String name() {
@@ -59,12 +71,11 @@ public class Pharmacy {
 
     @Override
     public String toString() {
-        return "Pharmacy{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", employees=" + employees +
-                ", medicines=" + medicines +
-                '}';
+        return "Pharmacy" +
+                " id = " + id +
+                " name = " + name +
+                " address = " + address +
+                " employees = " + employees +
+                " medicines = " + medicines ;
     }
 }

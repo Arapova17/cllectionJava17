@@ -1,6 +1,7 @@
 package linkedlist.models;
 
 public class Courier {
+    private static Long count = 0L;
     private Long id;
     private String fullName;
     private double rating;
@@ -9,8 +10,8 @@ public class Courier {
     public Courier() {
     }
 
-    public Courier(Long id, String fullName, double rating, boolean isAvailing) {
-        this.id = id;
+    public Courier( String fullName, double rating, boolean isAvailing) {
+        this.id = ++count;
         this.fullName = fullName;
         this.rating = rating;
         this.isAvailing = isAvailing;

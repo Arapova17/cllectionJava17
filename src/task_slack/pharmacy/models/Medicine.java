@@ -1,10 +1,10 @@
-package task_slack.pharmacy_management_system.models;
+package task_slack.pharmacy.models;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Medicine {
-    private final String id = UUID.randomUUID().toString();
+    private static Long count = 1L;
+    private Long id;
     private String name;
     private int price;
     private String description;
@@ -14,14 +14,19 @@ public class Medicine {
     }
 
     public Medicine(String name, int price, String description, LocalDate expirationDate) {
+        this.id = count++;
         this.name = name;
         this.price = price;
         this.description = description;
         this.expirationDate = expirationDate;
     }
 
-    public String id() {
+    public Long id() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String name() {
@@ -53,17 +58,23 @@ public class Medicine {
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
+        try {
+            if (expirationDate.compareTo(LocalDate.now()) < 0 && expirationDate != null) {
+                throw new RuntimeException("Мөөнөтү өтүп кеткен!");
+            }
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
         this.expirationDate = expirationDate;
     }
 
     @Override
     public String toString() {
-        return "Medicine{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", expirationDate=" + expirationDate +
-                '}';
+        return "Medicine" +
+                ": id = " + id +
+                ": name = " + name +
+                ": price = " + price +
+                ": description = " + description +
+                ": expiration Date = " + expirationDate + "\n";
     }
 }

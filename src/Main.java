@@ -3,6 +3,17 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        UserService userService = new UserServiceImpl();
+        userService.addUser(new User("test", "test@", "test", "test", 10));
+        userService.addUser(new User("test1", "test@1", "test1", "test1", 11));
+        System.out.println(userService.getAll());
+
+        userService.getByIdUser(1L);
+        System.out.println(userService.getAll());
+
+        userService.updateUser(1L, new User("test2", "test@2", "test2", "test2", 12));
+        System.out.println(userService.getAll());
 //       int a = 3;
 //       Integer b = a; //autoboxing
 //
@@ -83,24 +94,24 @@ public class Main {
 //
 //        System.out.println(employees);
 
-        List<Integer> integerList = new ArrayList<>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9));
-        System.out.println(integerList);
-
-        List<Integer> evenNumbers = new LinkedList<>();
-        List<Integer> oddNumbers = new LinkedList<>();
-        for (Integer integer : integerList){
-            if (integer % 2 == 0) {
-                evenNumbers.add(integer);
-            } else {
-                oddNumbers.add(integer);
-            }
-
-        }
-
-        Collections.sort(integerList);
-        System.out.println(evenNumbers);
-        System.out.println(oddNumbers);
-
+//        List<Integer> integerList = new ArrayList<>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9));
+//        System.out.println(integerList);
+//
+//        List<Integer> evenNumbers = new LinkedList<>();
+//        List<Integer> oddNumbers = new LinkedList<>();
+//        for (Integer integer : integerList){
+//            if (integer % 2 == 0) {
+//                evenNumbers.add(integer);
+//            } else {
+//                oddNumbers.add(integer);
+//            }
+//
+//        }
+//
+//        Collections.sort(integerList);
+//        System.out.println(evenNumbers);
+//        System.out.println(oddNumbers);
+//
     }
 
     public static List<Student> getStudentWithGroup(List<Student> students, String group){

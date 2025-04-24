@@ -6,10 +6,8 @@ import linkedlist.models.Courier;
 import linkedlist.models.Delivery;
 import linkedlist.service.DeliveryService;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class DeliveryServiceImpl implements DeliveryService {
     @Override

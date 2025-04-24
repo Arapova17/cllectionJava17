@@ -4,7 +4,8 @@ import linkedlist.enums.DeliveryStatus;
 
 import java.time.LocalDate;
 
-public class Delivery {
+public class Delivery  {
+    private static Long count = 0L;
     private Long id;
     private String address;
     private LocalDate deliveryDate;
@@ -13,20 +14,17 @@ public class Delivery {
     private Package aPackage;
     private Courier courier;
 
-    public Delivery() {
-    }
-
-    public Delivery(Long id, String address, LocalDate deliveryDate, double price, DeliveryStatus deliveryStatus) {
-        this.id = id;
+    public Delivery( String address, LocalDate deliveryDate, double price, DeliveryStatus deliveryStatus) {
+        this.id = ++count;
         this.address = address;
         this.deliveryDate = deliveryDate;
         this.price = price;
         this.deliveryStatus = deliveryStatus;
     }
 
-    public Delivery(Long id, String address, LocalDate deliveryDate,
+    public Delivery(String address, LocalDate deliveryDate,
                     double price, DeliveryStatus deliveryStatus, Package aPackage, Courier courier) {
-        this.id = id;
+        this.id = ++count;
         this.address = address;
         this.deliveryDate = deliveryDate;
         this.price = price;
@@ -103,4 +101,5 @@ public class Delivery {
                 ", courier=" + courier +
                 '}';
     }
+
 }

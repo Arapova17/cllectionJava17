@@ -1,12 +1,11 @@
-package task_slack.pharmacy_management_system.models;
+package task_slack.pharmacy.models;
 
-import task_slack.pharmacy_management_system.enums.Gender;
-import task_slack.pharmacy_management_system.enums.Position;
-
-import java.util.UUID;
+import task_slack.pharmacy.enums.Gender;
+import task_slack.pharmacy.enums.Position;
 
 public class Employee {
-    private final String id = UUID.randomUUID().toString(); // Auto-generated
+    private static Long count = 1L;
+    private Long id;
     private String fullName;
     private String email;
     private String phoneNumber;
@@ -17,7 +16,9 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String fullName, String email, String phoneNumber, double experience, Position position, Gender gender) {
+    public Employee(String fullName, String email, String phoneNumber,
+                    double experience, Position position, Gender gender) {
+        this.id = count++;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -26,8 +27,12 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String id() {
+    public Long id() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String fullName() {
@@ -80,14 +85,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "EmployeeService{" +
-                "id='" + id + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", experience=" + experience +
-                ", position=" + position +
-                ", gender=" + gender +
-                '}';
+        return "Employee" +
+                " id = " + id +
+                " full Name = " + fullName +
+                " email = " + email +
+                " phone Number = " + phoneNumber +
+                " experience = " + experience +
+                " position = " + position +
+                " gender = " + gender ;
     }
 }
