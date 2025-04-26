@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class AdminServiceImpl implements AdminService {
     @Override
-    public Map<String, String> registerAdmin(Admin admin) {
+    public Map<String, String> registerAdmin() {
         Scanner scanner = new Scanner(System.in);
 
         // Катталган колдонуучулар (почта -> сырсөз)
         Map<String, String> registerAdmin = new HashMap<>();
-        registerAdmin.put("test@mail.com", "1234");
+        Admin admin = new Admin();
+        registerAdmin.put("test@gmail.com", "123456");
 
         System.out.println("Эгер катталган болсоңуз, 1 басыңыз.");
         System.out.println("Эгер сырсөзүңүздү унутуп калган болсоңуз, өзгөртүү үчүн 2 басыңыз.");

@@ -1,7 +1,5 @@
 package task_lms.task_set.models;
 
-import task_lms.task_set.enums.Lessons;
-
 import java.util.List;
 
 public class Group {
@@ -13,6 +11,12 @@ public class Group {
     private List<Students> students;
 
     public Group() {
+    }
+
+    public Group(String groupName, String description) {
+        this.id = ++count;
+        this.groupName = groupName;
+        this.description = description;
     }
 
     public Group(String groupName, String description, Lessons lessons, List<Students> students) {
